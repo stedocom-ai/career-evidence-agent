@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "career-evidence-agent"
+version = "0.2.0"
+description = "A tool-calling career evidence agent with local retrieval and citation checks"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+pdf = ["pypdf>=5,<7"]
+outlook = ["msal>=1.31,<2", "msal-extensions>=1.2,<2"]
+
+[project.scripts]
+career-agent = "career_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["career_agent*"]
+
+[tool.setuptools.package-data]
+career_agent = ["*.ps1"]
